@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Couturier icon">
+  <title>Couturier</title>
+  <defs>
+    <clipPath id="bg-clip">
+      <rect x="41" y="41" width="430" height="430" rx="96"/>
+    </clipPath>
+    <!-- Shadow for background -->
+    <filter id="shadow-bg" x="-5%" y="-5%" width="115%" height="120%">
+      <feDropShadow dx="12" dy="14" stdDeviation="0" flood-color="#1a1814" flood-opacity="1"/>
+    </filter>
+  </defs>
+
+  <!-- ── BACKGROUND: terracotta rounded square + ink offset shadow ── -->
+  <!-- Ink shadow (offset block, no blur — editorial feel) -->
+  <rect x="53" y="55" width="430" height="430" rx="96" fill="#1a1814"/>
+  <!-- Main background -->
+  <rect x="41" y="41" width="430" height="430" rx="96" fill="#c8401a"/>
+  <!-- Subtle warm highlight on top-left -->
+  <rect x="41" y="41" width="430" height="215" rx="96" fill="url(#highlight)" clip-path="url(#bg-clip)"/>
+  <defs>
+    <linearGradient id="highlight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#e85020" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#c8401a" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ── BACK DOCUMENT (paper2 color, slightly offset up-right) ── -->
+  <g opacity="0.82">
+    <!-- Page body -->
+    <rect x="222" y="96" width="155" height="196" rx="14" fill="#ece7de"/>
+    <!-- Dog-ear triangle (top-right corner fold) -->
+    <polygon points="341,96 377,132 341,132" fill="#f5f0e8"/>
+    <!-- Dog-ear shadow line -->
+    <line x1="341" y1="96" x2="377" y2="132" stroke="#c8c3ba" stroke-width="1.5"/>
+    <line x1="341" y1="132" x2="377" y2="132" stroke="#c8c3ba" stroke-width="1"/>
+    <!-- Lines on back page -->
+    <rect x="243" y="172" width="96" height="10" rx="5" fill="#b8b3aa" opacity="0.7"/>
+    <rect x="243" y="195" width="115" height="10" rx="5" fill="#b8b3aa" opacity="0.7"/>
+    <rect x="243" y="218" width="78" height="10" rx="5" fill="#b8b3aa" opacity="0.7"/>
+  </g>
+
+  <!-- ── FRONT DOCUMENT (white, main focus) ── -->
+  <g>
+    <!-- Page body -->
+    <rect x="138" y="148" width="155" height="196" rx="14" fill="#ffffff"/>
+    <!-- Dog-ear triangle -->
+    <polygon points="257,148 293,184 257,184" fill="#f5f0e8"/>
+    <!-- Dog-ear fold shadow -->
+    <line x1="257" y1="148" x2="293" y2="184" stroke="#dedad2" stroke-width="1.5"/>
+    <line x1="257" y1="184" x2="293" y2="184" stroke="#dedad2" stroke-width="1"/>
+    <!-- Lines on front page -->
+    <rect x="158" y="222" width="110" height="11" rx="5.5" fill="#1a1814" opacity="0.18"/>
+    <rect x="158" y="248" width="125" height="11" rx="5.5" fill="#1a1814" opacity="0.18"/>
+    <rect x="158" y="274" width="85"  height="11" rx="5.5" fill="#1a1814" opacity="0.18"/>
+  </g>
+
+  <!-- ── MERGE ARROW (gold, pointing right into document stack) ── -->
+  <!-- Bold chevron / arrow: symbolizes "combine → push into one" -->
+  <g opacity="0.92">
+    <polygon
+      points="
+        108,344
+        198,344
+        198,318
+        252,372
+        198,426
+        198,400
+        108,400
+      "
+      fill="#b8922a"
+    />
+  </g>
+</svg>

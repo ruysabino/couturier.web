@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Couturier favicon">
+  <title>Couturier</title>
+  <!-- Shadow offset block -->
+  <rect x="3" y="3.5" width="26" height="26" rx="6" fill="#1a1814"/>
+  <!-- Background -->
+  <rect x="2" y="2" width="26" height="26" rx="6" fill="#c8401a"/>
+  <!-- Back page -->
+  <rect x="13.5" y="6.5" width="10" height="13" rx="1.5" fill="#ece7de" opacity="0.8"/>
+  <polygon points="21,6.5 23.5,9 21,9" fill="#f5f0e8" opacity="0.8"/>
+  <!-- Front page -->
+  <rect x="8.5" y="10" width="10" height="13" rx="1.5" fill="#ffffff"/>
+  <polygon points="16,10 18.5,12.5 16,12.5" fill="#f0ebe3"/>
+  <!-- Lines -->
+  <rect x="10" y="15.5" width="6.5" height="1.5" rx="0.75" fill="#1a1814" opacity="0.2"/>
+  <rect x="10" y="18.5" width="7.5" height="1.5" rx="0.75" fill="#1a1814" opacity="0.2"/>
+  <!-- Arrow -->
+  <polygon points="6,23.5 11,23.5 11,21.5 14.5,24.5 11,27.5 11,25.5 6,25.5" fill="#b8922a" opacity="0.95"/>
+</svg>
