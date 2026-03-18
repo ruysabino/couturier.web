@@ -3,7 +3,7 @@
 > Inspirado no Couturier original de C. Emmanouilidis (2010)  
 > Reescrito como aplicação web moderna, 100% client-side.
 
-![Couturier Screenshot](https://via.placeholder.com/800x400/f5f0e8/c8401a?text=Couturier+v2.0)
+![Couturier Screenshot](https://github.com/ruysabino/couturier.web/blob/main/screenshot.png)
 
 ## ✨ Funcionalidades
 
