@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Couturier — PDF Merger</title>
+<title>Couturier Web — Mesclador de PDFs no navegador</title>
 <link rel="icon" type="image/x-icon" href="icons/favicon.ico"/>
 <link rel="icon" type="image/svg+xml" href="icons/favicon.svg"/>
 <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32x32.png"/>
@@ -12,15 +12,70 @@
 <link rel="manifest" href="icons/site.webmanifest"/>
 <meta name="theme-color" content="#c8401a"/>
 <meta name="description" content="Combine PDFs and images into a single document. 100% client-side, no server uploads."/>
-<meta property="og:title" content="Couturier — PDF Merger"/>
+<meta property="og:title" content="Couturier Web — Mesclador de PDFs no navegador"/>
 <meta property="og:description" content="Merge PDFs and images in your browser. No uploads. No servers."/>
 <meta property="og:image" content="icons/icon-512x512.png"/>
 <meta property="og:type" content="website"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<!-- Fontes DM auto-hospedadas (SIL Open Font License 1.1) — sem chamadas a servidores de terceiros -->
 
 <style>
+  @font-face {
+    font-family: 'DM Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/dm-mono-normal-400-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  @font-face {
+    font-family: 'DM Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('fonts/dm-mono-normal-500-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('fonts/dm-sans-normal-300-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/dm-sans-normal-300-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('fonts/dm-sans-normal-300-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  @font-face {
+    font-family: 'DM Serif Display';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/dm-serif-display-italic-400-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  @font-face {
+    font-family: 'DM Serif Display';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/dm-serif-display-normal-400-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -673,7 +728,7 @@
       <div class="tagline">PDF Merger &amp; Combiner</div>
     </div>
   </div>
-  <span class="badge-original">Open Source · Client-side · v2.0</span>
+  <span class="badge-original">Open Source (MIT) · Client-side</span>
 </header>
 
 <!-- ── MAIN ── -->
@@ -777,10 +832,10 @@
           </div>
           <div style="flex:1">
             <div style="font-size:0.82rem;font-weight:500;color:var(--ink)">Criptografar PDF</div>
-            <div style="font-size:0.72rem;color:var(--ink3)">Proteger com senha</div>
+            <div style="font-size:0.72rem;color:var(--ink3)">Indisponível — a biblioteca pdf-lib 1.17.1 não implementa criptografia</div>
           </div>
-          <label class="toggle">
-            <input type="checkbox" id="encryptToggle"/>
+          <label class="toggle" aria-disabled="true">
+            <input type="checkbox" id="encryptToggle" disabled/>
             <div class="toggle-track"></div>
             <div class="toggle-thumb"></div>
           </label>
@@ -837,8 +892,8 @@
 
 <!-- ── FOOTER ── -->
 <footer>
-  <span>Couturier v2.0 — inspirado no original de C. Emmanouilidis (2010)</span>
-  <span>100% client-side · nenhum arquivo enviado a servidores · <a href="https://github.com/cemmanouilidis/couturier" target="_blank">GitHub</a></span>
+  <span>Couturier Web — reimplementação independente, sem afiliação com o projeto Couturier de C. Emmanouilidis (2010)</span>
+  <span>100% client-side · nenhum arquivo enviado a servidores · <a href="https://github.com/ruysabino/couturier.web" target="_blank" rel="noopener">Código-fonte (MIT)</a> · <a href="https://github.com/cemmanouilidis/couturier" target="_blank" rel="noopener">Projeto que inspirou</a></span>
 </footer>
 
 <!-- ── TOAST ── -->
@@ -1168,26 +1223,12 @@ async function doCombine() {
     const doEncrypt = document.getElementById('encryptToggle').checked;
     let pdfBytes;
 
+    // A criptografia está desativada de forma intencional: a pdf-lib 1.17.1 ignora
+    // userPassword/ownerPassword e geraria um PDF SEM proteção alguma.
     if (doEncrypt) {
-      const userPass = document.getElementById('passUser').value;
-      const ownerPass = document.getElementById('passOwner').value || userPass + '_owner';
-      if (!userPass) { showToast('Digite a senha para criptografar!', 'error'); btn.disabled = false; progressWrap.classList.remove('visible'); return; }
-      pdfBytes = await mergedPdf.save({
-        userPassword: userPass,
-        ownerPassword: ownerPass,
-        permissions: {
-          printing: 'highResolution',
-          modifying: false,
-          copying: false,
-          annotating: false,
-          fillingForms: false,
-          contentAccessibility: true,
-          documentAssembly: false
-        }
-      });
-    } else {
-      pdfBytes = await mergedPdf.save();
+      showToast('Criptografia indisponível nesta versão — o PDF será gerado sem senha.', 'error', 5000);
     }
+    pdfBytes = await mergedPdf.save();
 
     setProgress(100, 'Pronto!');
     await new Promise(r => setTimeout(r, 300));

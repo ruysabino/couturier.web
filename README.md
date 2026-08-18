@@ -1,131 +1,89 @@
-# Couturier v2.0 — PDF Merger Web App
+# Couturier Web — Mesclador de PDFs no navegador
 
-> Inspirado no Couturier original de C. Emmanouilidis (2010)  
-> Reescrito como aplicação web moderna, 100% client-side.
+> Reimplementação web independente, 100% client-side, de um utilitário de mesclagem de PDFs.
+> Inspirada conceitualmente no projeto [Couturier](https://github.com/cemmanouilidis/couturier)
+> de C. Emmanouilidis (2010) — **sem qualquer afiliação, código compartilhado ou endosso**.
+> Não é uma continuação nem uma versão oficial daquele projeto.
 
-![Couturier Screenshot](https://github.com/ruysabino/couturier.web/blob/main/screenshot.png)
+![Couturier Web Screenshot](https://github.com/ruysabino/couturier.web/blob/main/screenshot.png)
 
 ## ✨ Funcionalidades
 
 - **Mesclar PDFs** — combine quantos arquivos quiser em um único documento
-- **Adicionar imagens** — suporte a PNG, JPG, WEBP, TIFF, BMP convertidas para PDF
+- **Adicionar imagens** — PNG, JPG, WEBP, TIFF, BMP convertidas para PDF
 - **Reordenar arquivos** — arraste para reorganizar ou use os botões ↑↓
-- **Criptografar** — proteja o PDF final com senha de usuário e proprietário
 - **Orientação de página** — mantenha original, force retrato ou paisagem
 - **100% client-side** — nenhum arquivo é enviado a servidores externos
+- **Fontes auto-hospedadas** — nenhuma requisição a servidores de fontes de terceiros
+
+### ⚠️ Criptografia com senha (indisponível)
+
+A opção de proteger o PDF com senha está **desativada**. A `pdf-lib` 1.17.1 não
+implementa criptografia: os parâmetros `userPassword`/`ownerPassword` são
+ignorados e o arquivo resultante sairia **sem proteção alguma**, o que seria uma
+falsa sensação de segurança. Para proteger um PDF com senha, use uma ferramenta
+dedicada (por exemplo `qpdf --encrypt`).
 
 ## 🚀 Deploy no GitHub Pages
 
-### Opção 1 — Repositório simples (mais fácil)
+1. **Settings → Pages**
+2. Em **Source**, selecione **Deploy from a branch**
+3. Branch: `main` / Folder: `/ (root)` → **Save**
+4. Acesse `https://seu-usuario.github.io/couturier.web/`
 
-1. Crie um repositório no GitHub (ex: `couturier`)
-2. Faça upload do `index.html` na raiz do repositório
-3. Vá em **Settings → Pages**
-4. Em **Source**, selecione **Deploy from a branch**
-5. Branch: `main` / Folder: `/ (root)`
-6. Clique em **Save**
-7. Aguarde ~1 minuto e acesse: `https://seu-usuario.github.io/couturier/`
-
-### Opção 2 — Via GitHub CLI
-
-```bash
-# Clone ou crie o repositório
-git clone https://github.com/seu-usuario/couturier.git
-cd couturier
-
-# Copie o index.html
-cp /caminho/para/index.html .
-
-# Commit e push
-git add index.html
-git commit -m "feat: Couturier v2.0 web app"
-git push origin main
-
-# Ative o GitHub Pages nas configurações do repositório
-```
-
-### Opção 3 — GitHub Actions (deploy automático)
-
-Crie o arquivo `.github/workflows/deploy.yml`:
-
-```yaml
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: [main]
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v4
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-      - id: deployment
-        uses: actions/deploy-pages@v4
-```
+> Publique o repositório inteiro (não apenas `index.html`): a pasta `fonts/`
+> precisa acompanhar a página para que a tipografia carregue localmente.
 
 ## 📂 Estrutura do projeto
 
 ```
-couturier/
-└── index.html          # Aplicação completa (self-contained)
-└── README.md           # Este arquivo
-└── .github/
-    └── workflows/
-        └── deploy.yml  # (opcional) CI/CD automático
+couturier.web/
+├── index.html              # Aplicação completa
+├── fonts/                  # Fontes DM auto-hospedadas (.woff2) + OFL.txt
+├── LICENSE                 # MIT (código deste projeto)
+├── NOTICE                  # Atribuições de terceiros e nota de não afiliação
+└── README.md
 ```
 
-## 🛠 Tecnologias
+## 🛠 Tecnologias e licenças
 
-| Biblioteca | Versão | Uso |
-|-----------|--------|-----|
-| [pdf-lib](https://pdf-lib.js.org/) | 1.17.1 | Criação, mesclagem e criptografia de PDFs |
-| [downloadjs](https://github.com/rndme/download) | 1.4.7 | Download do arquivo gerado |
-| [DM Serif Display / DM Mono / DM Sans](https://fonts.google.com) | — | Tipografia |
+| Componente | Versão | Licença | Uso |
+|-----------|--------|---------|-----|
+| [pdf-lib](https://pdf-lib.js.org/) | 1.17.1 | MIT | Criação e mesclagem de PDFs (via CDN unpkg) |
+| [downloadjs](https://github.com/rndme/download) | 1.4.7 | MIT | Download do arquivo gerado (via CDN unpkg) |
+| [DM Sans / DM Serif Display / DM Mono](https://github.com/googlefonts/dm-fonts) | — | SIL OFL 1.1 | Tipografia (auto-hospedada em `fonts/`) |
 
-Todas as dependências são carregadas via CDN — nenhum `npm install` necessário.
+Todas as licenças de terceiros são compatíveis com a MIT deste projeto.
+Detalhes e textos de aviso em [`NOTICE`](NOTICE) e [`fonts/OFL.txt`](fonts/OFL.txt).
 
 ## 🔒 Privacidade
 
-Todo o processamento ocorre **localmente no browser do usuário**.  
-Nenhum arquivo PDF ou imagem é enviado a qualquer servidor.
+Todo o processamento ocorre **localmente no browser**. Nenhum PDF ou imagem é
+enviado a qualquer servidor. As fontes são servidas pelo próprio site (sem
+`fonts.googleapis.com` / `fonts.gstatic.com`), evitando transferência de IP dos
+visitantes a terceiros — ponto relevante para conformidade com o RGPD/GDPR.
+As bibliotecas `pdf-lib` e `downloadjs` ainda são carregadas do CDN público
+unpkg.com; para eliminar qualquer chamada externa, basta baixar os dois arquivos
+`.js` para o repositório e ajustar os `<script src>` em `index.html`.
 
 ## 📋 Formatos suportados
 
-**Entrada:**
-- PDF (`.pdf`)
-- Imagens: PNG, JPG/JPEG, WEBP, TIFF/TIF, BMP
+**Entrada:** PDF, PNG, JPG/JPEG, WEBP, TIFF/TIF, BMP
+**Saída:** PDF
 
-**Saída:**
-- PDF (com ou sem criptografia)
+## 🌐 Compatibilidade
 
-## 🌐 Compatibilidade de browsers
-
-| Browser | Suporte |
-|---------|---------|
-| Chrome 90+ | ✅ |
-| Firefox 88+ | ✅ |
-| Safari 14+ | ✅ |
-| Edge 90+ | ✅ |
+Chrome 90+ · Firefox 88+ · Safari 14+ · Edge 90+
 
 ## 📜 Créditos
 
-- **Couturier original**: Charalampos Emmanouilidis (2010) — [GitHub](https://github.com/cemmanouilidis/couturier)
-- **pdf-lib**: Andrew Dillon — [pdf-lib.js.org](https://pdf-lib.js.org)
-- **Redesign web v2.0**: gerado com Claude (Anthropic)
+- **Inspiração conceitual**: Couturier, de Charalampos Emmanouilidis (2010) — projeto sem licença publicada; nenhum código seu é usado ou redistribuído aqui
+- **pdf-lib**: Andrew Dillon
+- **downloadjs**: dandavis
+- **Fontes DM**: The DM Fonts Project Authors
+- **Desenvolvimento desta versão web**: Ruy Sabino Pereira, com auxílio de assistentes de IA
 
 ## 📄 Licença
 
-MIT License — livre para usar, modificar e distribuir.
+[MIT](LICENSE) © 2026 Ruy Sabino Pereira. Consulte [`NOTICE`](NOTICE) para as
+atribuições obrigatórias de componentes de terceiros.

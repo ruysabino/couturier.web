@@ -1,0 +1,47 @@
+Couturier Web
+Copyright (c) 2026 Ruy Sabino Pereira
+Licenciado sob a MIT License (ver arquivo LICENSE).
+
+--------------------------------------------------------------------------
+1. Independência e ausência de afiliação
+--------------------------------------------------------------------------
+Este projeto é uma reimplementação web independente, escrita do zero, de um
+utilitário de mesclagem de PDFs. Ele foi INSPIRADO conceitualmente pelo
+projeto "Couturier" de Charalampos Emmanouilidis (2010),
+https://github.com/cemmanouilidis/couturier, mas:
+
+  * NÃO contém, deriva ou reutiliza qualquer código-fonte daquele projeto;
+  * NÃO é uma continuação, versão sucessora ou release oficial dele;
+  * NÃO possui qualquer afiliação, patrocínio ou endosso do autor original.
+
+O projeto original não publica arquivo de licença (todos os direitos
+reservados); por isso nenhum de seus arquivos é redistribuído aqui. O nome
+"Couturier" é usado apenas de forma descritiva e referencial.
+
+--------------------------------------------------------------------------
+2. Componentes de terceiros
+--------------------------------------------------------------------------
+
+pdf-lib 1.17.1
+  Copyright (c) 2019 Andrew Dillon
+  Licença: MIT — https://github.com/Hopding/pdf-lib/blob/master/LICENSE.md
+  Uso: criação e mesclagem de documentos PDF. Carregado via CDN (unpkg).
+
+downloadjs 1.4.7
+  Copyright (c) 2016 dandavis
+  Licença: MIT — https://github.com/rndme/download/blob/master/LICENSE
+  Uso: download do arquivo gerado. Carregado via CDN (unpkg).
+
+DM Sans, DM Serif Display, DM Mono
+  Copyright The DM Fonts Project Authors
+  (https://github.com/googlefonts/dm-fonts)
+  Licença: SIL Open Font License 1.1 — cópia integral em fonts/OFL.txt
+  Uso: tipografia da interface. Arquivos .woff2 auto-hospedados em fonts/
+  (nenhuma requisição a fonts.googleapis.com / fonts.gstatic.com).
+
+--------------------------------------------------------------------------
+3. Conteúdo gerado por IA
+--------------------------------------------------------------------------
+Partes da interface e do código deste projeto foram elaboradas com auxílio de
+assistentes de IA. O titular dos direitos sobre o resultado, na medida em que
+seja protegível, é o autor indicado acima.
