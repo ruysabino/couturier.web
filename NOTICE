@@ -22,10 +22,10 @@ reservados); por isso nenhum de seus arquivos é redistribuído aqui. O nome
 2. Componentes de terceiros
 --------------------------------------------------------------------------
 
-pdf-lib 1.17.1
+@cantoo/pdf-lib 2.9.1
   Copyright (c) 2019 Andrew Dillon
-  Licença: MIT — https://github.com/Hopding/pdf-lib/blob/master/LICENSE.md
-  Uso: criação e mesclagem de documentos PDF. Carregado via CDN (unpkg).
+  Licença: MIT — https://github.com/Cantoo/pdf-lib/blob/master/LICENSE
+  Uso: criação, mesclagem e criptografia AES-256 de documentos PDF. Carregado via CDN (unpkg).
 
 downloadjs 1.4.7
   Copyright (c) 2016 dandavis
