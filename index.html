@@ -974,14 +974,15 @@
 
 <script>
 // ──────────────────────────────────────────────
-// I18N — pt-BR · en · es · fr · de
+// I18N — pt-BR · en · es · fr · de · it
 // ──────────────────────────────────────────────
 const FLAGS = {
   pt: '<svg viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="28" height="20" fill="#009b3a"/><path d="M14 2.4 25.6 10 14 17.6 2.4 10z" fill="#fedf00"/><circle cx="14" cy="10" r="4.2" fill="#002776"/><path d="M9.9 8.8a11 11 0 0 1 8.2 2.3" stroke="#fff" stroke-width="1.2" fill="none"/></svg>',
   en: '<svg viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="28" height="20" fill="#012169"/><path d="M0 0l28 20M28 0L0 20" stroke="#fff" stroke-width="4"/><path d="M0 0l28 20M28 0L0 20" stroke="#c8102e" stroke-width="2"/><path d="M14 0v20M0 10h28" stroke="#fff" stroke-width="6"/><path d="M14 0v20M0 10h28" stroke="#c8102e" stroke-width="3.5"/></svg>',
   es: '<svg viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="28" height="20" fill="#aa151b"/><rect y="5" width="28" height="10" fill="#f1bf00"/></svg>',
   fr: '<svg viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="28" height="20" fill="#fff"/><rect width="9.34" height="20" fill="#002395"/><rect x="18.66" width="9.34" height="20" fill="#ed2939"/></svg>',
-  de: '<svg viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="28" height="20" fill="#000"/><rect y="6.67" width="28" height="6.67" fill="#dd0000"/><rect y="13.34" width="28" height="6.66" fill="#ffce00"/></svg>'
+  de: '<svg viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="28" height="20" fill="#000"/><rect y="6.67" width="28" height="6.67" fill="#dd0000"/><rect y="13.34" width="28" height="6.66" fill="#ffce00"/></svg>',
+  it: '<svg viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="28" height="20" fill="#fff"/><rect width="9.34" height="20" fill="#008c45"/><rect x="18.66" width="9.34" height="20" fill="#cd212a"/></svg>'
 };
 
 const LANG_META = {
@@ -989,7 +990,8 @@ const LANG_META = {
   en: { code: 'EN', name: 'English',            htmlLang: 'en' },
   es: { code: 'ES', name: 'Español',            htmlLang: 'es' },
   fr: { code: 'FR', name: 'Français',           htmlLang: 'fr' },
-  de: { code: 'DE', name: 'Deutsch',            htmlLang: 'de' }
+  de: { code: 'DE', name: 'Deutsch',            htmlLang: 'de' },
+  it: { code: 'IT', name: 'Italiano',           htmlLang: 'it' }
 };
 
 const I18N = {
@@ -1267,6 +1269,61 @@ const I18N = {
     'toast.error': 'Fehler bei der Verarbeitung: {msg}',
     'error.imageLoad': 'Bild konnte nicht geladen werden: {name}',
     'lang.aria': 'Sprache wählen'
+  },
+  it: {
+    'meta.title': 'Couturier Web — Unisci PDF nel browser',
+    'meta.description': 'Unisci PDF e immagini in un unico documento. 100% nel browser, nessun caricamento su server.',
+    'header.tagline': 'Unione &amp; combinazione di PDF',
+    'header.badge': 'Open source (MIT) · Nel browser',
+    'section.files': 'File',
+    'section.queue': 'Elenco documenti',
+    'section.summary': 'Riepilogo',
+    'section.filename': 'Nome del file',
+    'section.orientation': 'Orientamento pagina',
+    'section.security': 'Sicurezza',
+    'drop.aria': 'Trascina i file qui o clicca per selezionarli',
+    'drop.title': 'Trascina qui',
+    'drop.sub': 'Unisci PDF e immagini<br>nell\u2019ordine che preferisci',
+    'list.empty': 'Nessun file aggiunto',
+    'list.pages': 'pag.',
+    'list.moveUp': 'Sposta su',
+    'list.moveDown': 'Sposta giù',
+    'list.remove': 'Rimuovi',
+    'stat.files': 'File',
+    'stat.pages': 'Pagine circa',
+    'stat.size': 'Dimensione',
+    'out.label': 'File di output',
+    'out.placeholder': 'nome-file',
+    'out.defaultName': 'documento-unito',
+    'orient.original': 'Mantieni orientamento originale',
+    'orient.portrait': 'Forza verticale',
+    'orient.landscape': 'Forza orizzontale',
+    'encrypt.title': 'Cripta il PDF',
+    'encrypt.sub': 'AES-256 — richiede una password per aprire il PDF',
+    'encrypt.userPass': 'Password di apertura',
+    'encrypt.userPassPh': 'Inserisci una password…',
+    'encrypt.ownerPass': 'Password proprietario (opzionale)',
+    'encrypt.ownerPassPh': 'Controllo dei permessi…',
+    'encrypt.toggleVisibility': 'Mostra/nascondi password',
+    'progress.idle': 'In attesa…',
+    'progress.start': 'Avvio…',
+    'progress.processing': 'Elaborazione: {name}',
+    'progress.finishing': 'Finalizzazione del PDF…',
+    'progress.done': 'Fatto!',
+    'cta.combine': 'Unisci i PDF',
+    'cta.clear': 'Cancella tutto',
+    'footer.disclaimer': 'Couturier Web — reimplementazione indipendente, senza affiliazione con il progetto Couturier di C. Emmanouilidis (2010)',
+    'footer.privacy': '100% nel browser · nessun file inviato ai server',
+    'footer.source': 'Codice sorgente (MIT)',
+    'footer.inspiration': 'Progetto che ha ispirato',
+    'toast.unsupported': 'Formato non supportato: {name}',
+    'toast.noFiles': 'Aggiungi almeno un file!',
+    'toast.encryptNoPassword': 'Inserisci una password di apertura per criptare il PDF.',
+    'toast.encrypted': 'PDF protetto con AES-256.',
+    'toast.success': '✓ {name} creato con successo!',
+    'toast.error': 'Errore durante l\u2019elaborazione: {msg}',
+    'error.imageLoad': 'Impossibile caricare l\u2019immagine: {name}',
+    'lang.aria': 'Seleziona la lingua'
   }
 };
 
